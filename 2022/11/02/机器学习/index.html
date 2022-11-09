@@ -31,8 +31,9 @@
 <meta property="og:image" content="http://bengoooo.com/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221101172310343.png">
 <meta property="og:image" content="http://bengoooo.com/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221102105908421.png">
 <meta property="og:image" content="http://bengoooo.com/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221102111506954.png">
+<meta property="og:image" content="http://bengoooo.com/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221109155431676.png">
 <meta property="article:published_time" content="2022-11-02T03:47:44.000Z">
-<meta property="article:modified_time" content="2022-11-02T06:18:00.304Z">
+<meta property="article:modified_time" content="2022-11-09T10:52:57.902Z">
 <meta property="article:author" content="BENgoooo">
 <meta property="article:tag" content="AI人工智能">
 <meta property="article:tag" content="机器学习(Mechine Learning)">
@@ -202,10 +203,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-11-02 11:47:44 / 修改时间：14:18:00" itemprop="dateCreated datePublished" datetime="2022-11-02T11:47:44+08:00">2022-11-02</time>
+              <time title="创建时间：2022-11-02 11:47:44" itemprop="dateCreated datePublished" datetime="2022-11-02T11:47:44+08:00">2022-11-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-11-09 18:52:57" itemprop="dateModified" datetime="2022-11-09T18:52:57+08:00">2022-11-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -240,11 +247,10 @@
       
         <h1 id="机器学习-吴恩达老师的视频课学习记录"><a href="#机器学习-吴恩达老师的视频课学习记录" class="headerlink" title="机器学习-吴恩达老师的视频课学习记录"></a>机器学习-吴恩达老师的视频课学习记录</h1><p>开始学习机器学习啦！以后研究生研究方向是机器学习、人工智能。现在大四课程基本结束了，提前学习和了解一下机器学习的基础知识。主要目的是入一个小门，为后期研究生课程做个铺垫。加入博客帮助我记录重点，不至于刷完视频跟啥都没学一样…再而，大家在看到这些内容时，有什么不同的理解也可以相互讨论。有错误欢迎指出~~😘</p>
 <span id="more"></span>
-
 <h1 id="什么是机器学习？"><a href="#什么是机器学习？" class="headerlink" title="什么是机器学习？"></a>什么是机器学习？</h1><h5 id="机器学习的定义"><a href="#机器学习的定义" class="headerlink" title="机器学习的定义"></a>机器学习的定义</h5><p>Arthur Samuel（“ 机器学习之父 ”）对于他的定义是：计算机可以在没有明确编程下进行学习。</p>
-<h5 id="机器学习的分类"><a href="#机器学习的分类" class="headerlink" title="机器学习的分类"></a>机器学习的分类</h5><p>$$ 机器学习&#x3D;\left{ \begin{matrix} 监督学习(Supervised Learning) \ 无监督学习(Unsupervised Learning)  \end{matrix} \right. $$</p>
-<h1 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h1><h3 id="Part-1"><a href="#Part-1" class="headerlink" title="Part 1"></a>Part 1</h3><p><strong>监督学习的定义</strong>：给定输入X与正确答案（输出Y），在模型从输入X与正确答案（输出Y）中学习。经过训练与学习之后，当给出一个全新的输入x时，他能够尝试给出正确答案（输出Y）。分析对象为：”输入、输出”，“x到y的映射”。</p>
+<h5 id="机器学习的分类"><a href="#机器学习的分类" class="headerlink" title="机器学习的分类"></a>机器学习的分类</h5><script type="math/tex; mode=display">机器学习=\left\{ \begin{matrix} 监督学习(Supervised Learning) \\ 无监督学习(Unsupervised Learning)  \end{matrix} \right.</script><h1 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h1><h3 id="Part-1"><a href="#Part-1" class="headerlink" title="Part 1"></a>Part 1</h3><p><strong>监督学习的定义</strong>：给定输入X与正确答案（输出Y），在模型从输入X与正确答案（输出Y）中学习。经过训练与学习之后，当给出一个全新的输入x时，他能够尝试给出正确答案（输出Y）。分析对象为：”输入、输出”，“x到y的映射”。</p>
 <p>输出X与正确答案的具体实例你可以从下表中理解：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -253,7 +259,8 @@
 <th>应用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>email</td>
 <td>spam?  (0,1)</td>
 <td>spam filtering</td>
@@ -269,7 +276,7 @@
 <td>machine translation</td>
 </tr>
 <tr>
-<td>user info&#x2F;advertising</td>
+<td>user info/advertising</td>
 <td>click?  (0,1)</td>
 <td>online advertising</td>
 </tr>
@@ -283,49 +290,108 @@
 <td>defect</td>
 <td>visual inspection</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>监督学习包括两个主要问题，其中一个问题是<u>回归</u>，回归算法能够达到预测的目的。回归问题的一个例子：</p>
-<img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221101165659102.png" alt="image-20221101165659102" style="zoom: 25%;">
-
+<p><img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221101165659102.png" alt="image-20221101165659102" style="zoom: 25%;"></p>
 <p>在此图中我们可以看到，x轴是房子的面积，y轴是房子的价格。在此情境下，我们有了输入X和正确答案（输出Y），通过回归算法我们便可以推测其他大小的房子的价格。这个价格取决于我们所选择的回归线，有可能是一元的、二元的、n元的等等。此处，我认为这里的问题是一个简化模型，实际问题考虑到地区、房子类型肯定更复杂。这里只是为了帮助我们理解回归。</p>
 <hr>
 <h3 id="Part-2"><a href="#Part-2" class="headerlink" title="Part 2"></a>Part 2</h3><p>第二种主要的机器学习算法是：<u>分类算法</u>。</p>
 <p>与回归不同的是，分类仅仅预测一小部分的数据，输出为两个，1或0。有时也会是超过两个结果的<u>有限个数输出</u>。而回归则是尝试预测无限多的可能中的一个。我们可以分类数字，动物，肿瘤等等。</p>
-<p>$$ 监督学习&#x3D;\left{ \begin{matrix} 回归(Regression)\ 分类 (Categories)\end{matrix} \right. $$</p>
-<p>在Part1中我们提到，监督学习需要一个输入X，但其实我们可以有多个输入X。</p>
-<img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221101172310343.png" alt="image-20221101172310343" style="zoom:25%;">
-
+<script type="math/tex; mode=display">监督学习=\left\{ \begin{matrix} 回归(Regression)\\ 分类 (Categories)\end{matrix} \right.</script><p>在Part1中我们提到，监督学习需要一个输入X，但其实我们可以有多个输入X。</p>
+<p><img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221101172310343.png" alt="image-20221101172310343" style="zoom:25%;"></p>
 <p>在上述分类恶性或良性肿瘤的例子中，学习算法可能要做的是找到一个分界线，这个分界线需要很好的拟合我们现在拥有的数据库。</p>
 <hr>
 <h1 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h1><h3 id="Part-1-1"><a href="#Part-1-1" class="headerlink" title="Part 1"></a>Part 1</h3><p><strong>无监督学习的定义：</strong>相比于监督学习，无监督学习没有正确答案（输出Y），只有输入X这些数据，通过这些数据找到数据特点或者结构又或者模式等等。在无监督学习中，我们不需要知道其输出。如在肿瘤的例子中，找到良性或恶性并不是我们的目标，而是通过这些数据得到他们的结构，模式或有意思的东西。</p>
 <p>无监督学习的其中一个典型例子是：<u>集群（聚类）算法</u>。其主要目的是进行分类操作。</p>
 <p><strong>例子1：</strong></p>
 <p>如在我们日常浏览网站新闻的过程中或网购的过程中，我们总会看到一个区域，其主要目的是帮助你发现与你现在所看的这个条新闻类似的新闻，或与你现在所买的东西类似的东西。这就是基于集群算法的分类。</p>
-<img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221102105908421.png" alt="image-20221102105908421" style="zoom:25%;">
-
+<p><img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221102105908421.png" alt="image-20221102105908421" style="zoom:25%;"></p>
 <p>如上图所示，当我们看到一个关于熊猫的新闻时，下方为我们列举了四则类似的新闻（在实际中，他会说“这可能你所感兴趣的” ）</p>
 <p>仔细观察我们会发现，下面四则新闻与你所看的新闻有一些共同的词汇：panda，win，zoo。这就有助于你找的你感兴趣的新闻，然后继续进行浏览。</p>
 <p><strong>例子2：</strong></p>
 <p>对于一个基因库。我们所拥有的数据是大量人的基因序列（输入X），但我们没有标签（输出Y）。在此情景下，无监督学习的任务就是帮我们在这海量基因数据中找的几类人（类型1、类型2、类型3）。在实际中，我们通常会遇到研究表明，爱吃香菜的人与不爱吃香菜的人可能与其基因有关（我就喜欢吃香菜🤭）等等这些常遇到的例子。</p>
 <p><strong>例子3：</strong></p>
 <p>当一个公司拥有大量用户的信息以及浏览数据时，他们便可以通过集群算法来进行客户分类，如下图：</p>
-<img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221102111506954.png" alt="image-20221102111506954" style="zoom:25%;">
-
+<p><img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221102111506954.png" alt="image-20221102111506954" style="zoom:25%;"></p>
 <p>在AI社区中，不同用户加入的目的不同。有些人可能为了增加技能或者知识，有些人为了发展自己的事业，有些人为了关注AI动向。无监督学习便可以通过这些用户数据进行客户分类。有时尽管其可能不是这三个中的任意一个，不过不同担心，因为他也能帮你进行分类，引用吴恩达老师的话就是：</p>
 <blockquote>
 <p>I love you all the same 💕😘</p>
 </blockquote>
 <p>总的来说，无监督学习中的聚类算法能够通过分析海量数据的特点，然后对这些具有相同特点或者结构的数据进行分类。</p>
+<p>无监督学习除了集群算法，还有异常检测、降维算法。</p>
 <hr>
 <p><strong>问题</strong></p>
 <p><strong>这里你可能有一个疑问：在监督学习中我们也提到了分类算法，无监督学习中也有也有分类，那他们的区别是什么勒？？</strong></p>
 <p>在我的理解看来，监督学习中的分类是提前给出了标签（即正确答案），然后将输入分类给不同的标签。如在动物识别中，我们提前给出了这个动物是狗，那个是猫，另一个是马……给出了一个动物，他会其分给要么是狗或猫又或者马，如果哪个都不是你也可以多设置一个答案（以上都不是），其特点是数据的答案我们已经给出了；而无监督学习则是利用给出的数据，通过分析数据的特点、结构等等，自己进行一个分类，也可以理解为机器自己给出一个”正确答案“，而这些”正确答案“内的数据都符合机器自己总结出的”正确答案“数据特点。</p>
 <hr>
 <p>这里插播一条链接，昨晚刷抖音看到了剑桥大学发布了一篇关于AI的报告（State of AI Report 2022），大家有兴趣可以看看。</p>
-<p>[<a target="_blank" rel="noopener" href="https://www.stateof.ai/]">https://www.stateof.ai/]</a>: </p>
+<p>[<a target="_blank" rel="noopener" href="https://www.stateof.ai/">https://www.stateof.ai/</a>]: </p>
 <p>”鼠标点击链接“即可观看🙌</p>
 <p>链接好像有些问题，不过点进去直接点back to our site即可。</p>
 <hr>
+<h1 id="线性回归模型"><a href="#线性回归模型" class="headerlink" title="线性回归模型"></a>线性回归模型</h1><h2 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h2><h3 id="Part-1-2"><a href="#Part-1-2" class="headerlink" title="Part 1"></a>Part 1</h3><p>在线性回归模型中，一个典型的例子是某个区域对于房价的预测。如下图所示</p>
+<p><img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221109155431676.png" alt="image-20221109155431676" style="zoom:33%;"></p>
+<p>我们通常知道的数据是<strong>房子的面积</strong>以及其对应的<strong>价格</strong>，目标是通过这些数据并利用线性回归模型来预测房价。接下来先介绍一些模型需要使用的符号，帮助我们后续进行模型表达。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">x</td>
+<td style="text-align:center">输入变量特征</td>
+</tr>
+<tr>
+<td style="text-align:center">y</td>
+<td style="text-align:center">目标变量</td>
+</tr>
+<tr>
+<td style="text-align:center">m</td>
+<td style="text-align:center">训练样本的数量</td>
+</tr>
+<tr>
+<td style="text-align:center">(x, y)</td>
+<td style="text-align:center">单个训练样本</td>
+</tr>
+<tr>
+<td style="text-align:center">(x^(i)^, y^(i)^)</td>
+<td style="text-align:center">第i个训练样本</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Part-2-1"><a href="#Part-2-1" class="headerlink" title="Part 2"></a>Part 2</h3><p>现在，让我们来建立模型。通过房子面积与价格关系图所示，我们如何找到一条线能够让所有样本点都落在这条线上（当然这在大部分时候是不可能的，我们只能尽量让这些点落在线的附近）。但为了简单起见，我们可以选择一条直线，即一次函数（正如图中所示）。理解了一次函数的拟合有助于我们后续进行复杂曲线的拟合。模型如下：</p>
+<script type="math/tex; mode=display">
+f_{w,b}(x) = w*x+b</script><p>上述式子所表明的就是<strong>线性回归模型</strong>（Linear Regression），更具体的说这是一个单变量线性回归模型（Univariate linear regression）。式子中的w与b是此模型的参数，他们影响了直线在坐标轴上的位置。</p>
+<p>在后续的例子中，我们也会学到多变量线性回归模型，因为就这个房价预测模型来说，面积一定不是影响房价的唯一标准，除了面积可能还会有卧室数量、房龄、周边商场数量等你所能想到的一系列标准。</p>
+<hr>
+<h2 id="成本函数"><a href="#成本函数" class="headerlink" title="成本函数"></a>成本函数</h2><h4 id="成本函数需求：有了模型，我们肯定需要一个标准来衡量一个模型的好坏。那么如何确定这个标准是什么呢？"><a href="#成本函数需求：有了模型，我们肯定需要一个标准来衡量一个模型的好坏。那么如何确定这个标准是什么呢？" class="headerlink" title="成本函数需求：有了模型，我们肯定需要一个标准来衡量一个模型的好坏。那么如何确定这个标准是什么呢？"></a>成本函数需求：有了模型，我们肯定需要一个标准来衡量一个模型的好坏。那么如何确定这个标准是什么呢？</h4><p>首先，让我们回归建立此模型的初心：能够让这条直线准确的预测房价。为了完成这个目标，我们希望这条直线能够尽量离每一个样本点都很近（理想情况是每一个样本点都落在我们的直线上，但这显然不可能）。我们知道，在Part2中我们建立了线性回归模型，在该模型中，改变w与b的值将会改变直线在坐标轴中的位置，也就改变了直线与样本点在坐标中的相对位置。因此，w和b的取值对于衡量模型的好坏便尤为重要。</p>
+<p>如何用数学符号与公式来实现我们的目标？</p>
+<ol>
+<li>想要让直线上的某一个点距离样本点很近，在数学表达式中我们可以写作</li>
+</ol>
+<script type="math/tex; mode=display">
+\hat y ^{(i)} -y^{(i)}</script><p>式子中的$\hat y^{(i)}$代表第i个模型预测值，$y^{(i)}$代表第i个样本点目标值。</p>
+<ol>
+<li>为了消除值的正负带来的影响我们将式子平方</li>
+</ol>
+<script type="math/tex; mode=display">
+( \hat y ^{(i)} -y^{(i)})^2</script><ol>
+<li>同时考虑所有样本,做求和与平均值操作</li>
+</ol>
+<script type="math/tex; mode=display">
+\frac{1}{2m}\sum_{i=1}^{m}( \hat y ^{(i)} -y^{(i)})^2</script><p>上式便是我们衡量模型好坏所用到的公式，我们将其称为<strong>成本函数（Cost function）</strong>，也叫做平方误差成本函数，因为式子中用到了模型预测点与样本点目标值的误差以及平方处理。成本函数用$J_{(w,b)}$表示。</p>
+<p><strong>根据字面意思我们可以知道，成本函数代表着一个模型的 “成本”（与商品的成本类似，成本越小越好），成本函数值越小模型对于原数据的拟合程度越高。</strong></p>
+<hr>
+<h4 id="成本函数的完整表示"><a href="#成本函数的完整表示" class="headerlink" title="成本函数的完整表示"></a>成本函数的完整表示</h4><script type="math/tex; mode=display">
+J_{(w,b)} = \frac{1}{2m}\sum_{i=1}^{m}( \hat y ^{(i)} -y^{(i)})^2</script><p>在上式中，有人可能会有疑问，为什么m个数据样本最后的成本函数却是除以2m。在此处简单解释一下这个问题，那就是为了后期计算更加整洁。详细的原因我将会在后面的内容中提到。</p>
+<p>关于成本函数，不同的人会使用不同的成本函数来衡量不同模型的准确性。但平方误差成本函数通常更有利于衡量线性回归模型的准确度。</p>
 
     </div>
 
@@ -428,7 +494,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E8%80%81%E5%B8%88%E7%9A%84%E8%A7%86%E9%A2%91%E8%AF%BE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">机器学习-吴恩达老师的视频课学习记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什么是机器学习？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">机器学习的定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">2.0.0.0.2.</span> <span class="nav-text">机器学习的分类</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.</span> <span class="nav-text">监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">Part 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-2"><span class="nav-number">3.0.2.</span> <span class="nav-text">Part 2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.</span> <span class="nav-text">无监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-1-1"><span class="nav-number">4.0.1.</span> <span class="nav-text">Part 1</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E8%80%81%E5%B8%88%E7%9A%84%E8%A7%86%E9%A2%91%E8%AF%BE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">机器学习-吴恩达老师的视频课学习记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什么是机器学习？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">机器学习的定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">2.0.0.0.2.</span> <span class="nav-text">机器学习的分类</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.</span> <span class="nav-text">监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">Part 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-2"><span class="nav-number">3.0.2.</span> <span class="nav-text">Part 2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.</span> <span class="nav-text">无监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-1-1"><span class="nav-number">4.0.1.</span> <span class="nav-text">Part 1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">线性回归模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B"><span class="nav-number">5.1.</span> <span class="nav-text">模型建立</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-1-2"><span class="nav-number">5.1.1.</span> <span class="nav-text">Part 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-2-1"><span class="nav-number">5.1.2.</span> <span class="nav-text">Part 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.</span> <span class="nav-text">成本函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%87%BD%E6%95%B0%E9%9C%80%E6%B1%82%EF%BC%9A%E6%9C%89%E4%BA%86%E6%A8%A1%E5%9E%8B%EF%BC%8C%E6%88%91%E4%BB%AC%E8%82%AF%E5%AE%9A%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%A0%87%E5%87%86%E6%9D%A5%E8%A1%A1%E9%87%8F%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%A5%BD%E5%9D%8F%E3%80%82%E9%82%A3%E4%B9%88%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E8%BF%99%E4%B8%AA%E6%A0%87%E5%87%86%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="nav-number">5.2.0.1.</span> <span class="nav-text">成本函数需求：有了模型，我们肯定需要一个标准来衡量一个模型的好坏。那么如何确定这个标准是什么呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A1%A8%E7%A4%BA"><span class="nav-number">5.2.0.2.</span> <span class="nav-text">成本函数的完整表示</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -588,6 +654,63 @@
 
 
   
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
