@@ -50,8 +50,11 @@
 <meta property="og:image" content="http://bengoooo.com/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221110163144361.png">
 <meta property="og:image" content="http://bengoooo.com/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221110163404092.png">
 <meta property="og:image" content="http://bengoooo.com/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221110165314658.png">
+<meta property="og:image" content="http://bengoooo.com/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221110202337947.png">
+<meta property="og:image" content="http://bengoooo.com/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221110202544550.png">
+<meta property="og:image" content="http://bengoooo.com/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221110202647193.png">
 <meta property="article:published_time" content="2022-11-02T03:47:44.000Z">
-<meta property="article:modified_time" content="2022-11-10T09:24:26.565Z">
+<meta property="article:modified_time" content="2022-11-10T12:52:53.331Z">
 <meta property="article:author" content="BENgoooo">
 <meta property="article:tag" content="AI人工智能">
 <meta property="article:tag" content="机器学习(Mechine Learning)">
@@ -229,7 +232,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-10 17:24:26" itemprop="dateModified" datetime="2022-11-10T17:24:26+08:00">2022-11-10</time>
+                <time title="修改时间：2022-11-10 20:52:53" itemprop="dateModified" datetime="2022-11-10T20:52:53+08:00">2022-11-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -505,6 +508,61 @@ b = b-α\frac{d}{dw}J(w,b)\tag{1.10}</script><p>式子中，α称为学习率。
 w = w-α\frac{1}{m}\sum_{i=1}^{m}( f_{w,b}(x^{(i)}) -y^{(i)})x^{(i)}\tag{1.11}</script><script type="math/tex; mode=display">
 b = b-α\frac{1}{m}\sum_{i=1}^{m}( f_{w,b}(x^{(i)}) -y^{(i)})\tag{1.12}</script><p>在前几节所讨论的成本函数并不是线性回归模型中的平方误差成本函数，而是为了帮助我们理解公式所假设的一般成本函数，这种一般成本函数可能会存在多个山峰以及多个山谷，也就是拥有多个局部最优解。但对于平方误差成本函数来说，他只存在一个局部最优解，也是全局最优解。所以，只要我们的学习率选的合适，最后的结果总能收敛。</p>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>后续补充😁</p>
+<h1 id="多维线性回归"><a href="#多维线性回归" class="headerlink" title="多维线性回归"></a>多维线性回归</h1><p><strong>背景</strong></p>
+<p>回想我们在线性回归模型中给出的典型房价预测例子，其中输入特征为房子面积，目标输出为房价。模型的作用是希望给出任意房子面积后能够预测房子价格。但现实情况是，决定房子价格的不仅仅是房子的面积，往往还包括房子的年龄，房室个数，甚至周边商场、公园、医院的个数。这些也都是能够决定房子价格的重要因素，我们需要将他们考虑在内。若如此，我们的线性回归模型便无法完成预测任务，因为模型仅仅包含一个输入特征，那么如何解决具有n（n&gt;=2）个输入特征的预测任务呢？</p>
+<p>多维线性回归可以帮助我们完成这个任务。</p>
+<h2 id="多维特征"><a href="#多维特征" class="headerlink" title="多维特征"></a>多维特征</h2><p>多维线性回归模型拥有多个输入特征，回归模型相较于单维线性回归模型有所改变。</p>
+<p><strong>符号解释</strong></p>
+<p>在进行模型建立之前，我们还是先进行一些符号解释，如下表：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:center">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$x_j$</td>
+<td style="text-align:center">第$j$个特征</td>
+<td style="text-align:center"><img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221110202337947.png" alt="image-20221110202337947" style="zoom:25%;"></td>
+</tr>
+<tr>
+<td style="text-align:center">$n$</td>
+<td style="text-align:center">特征的个数</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">$\vec{x}^{(i)}$</td>
+<td style="text-align:center">第$i$个训练集的特征</td>
+<td style="text-align:center"><img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221110202544550.png" alt="image-20221110202544550" style="zoom:25%;"></td>
+</tr>
+<tr>
+<td style="text-align:center">$x_j^{(i)}$</td>
+<td style="text-align:center">第$i$个训练集的第$j$个特征的值</td>
+<td style="text-align:center"><img src="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/image-20221110202647193.png" alt="image-20221110202647193" style="zoom:25%;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>模型建立</strong></p>
+<p>多维线性回归模型如下：</p>
+<script type="math/tex; mode=display">
+f_{w,b}(x) = w_1x_1+w_2x_2+w_3x_3+···+w_nx_n+b\tag{2.1}</script><p>为了便于理解，我们可以将 $x_1$ 视作每平方米的价格， $x_2$ 视作卧室数， $x_3$ 视作周边商场数等等。</p>
+<p>为了简化式子，我们可以将$w_1$-$w_2$视为一个向量（在编程语言中可以用数组代替），记为</p>
+<script type="math/tex; mode=display">
+\vec{w}=[w_1, w_2, w_3, w_4, ··· w_n]\tag{2.2}</script><p>同样，$x_1$-$x_2$也可以视作一个向量，记为</p>
+<script type="math/tex; mode=display">
+\vec{x}=[x_1, x_2, x_3, x_4, ··· x_n]\tag{2.3}</script><p>最终，式子（2.1）可以转化为如下</p>
+<script type="math/tex; mode=display">
+f_{\vec{w},b}(\vec{x}) = \vec{w}·\vec{x}+b\tag{2.4}</script><p>式子（2.4）即为多元线性回归模型。</p>
+<h2 id="矢量化"><a href="#矢量化" class="headerlink" title="矢量化"></a>矢量化</h2><p>矢量化可以使学习算法更加有效的运行，且代码更加短。矢量化代码将会允许我们使用数值线性代数库，甚至还会用到GPU硬件。GPU硬件可以帮你更快的执行代码，提高并行处理数据的能力。</p>
+<p>利用Numpy(借助了并行硬件能力)中如下代码表示模型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = np.dot(w,x)+b  </span><br></pre></td></tr></table></figure>
+<p>利用上述仅仅一行代码就可以实现点乘操作而不需要使用 “ * ” 与 “ + ”  组合或者for循环，其好处是代码运行速度更快。</p>
+<p>在计算机中，使用for循环是一中顺序执行方式，速度慢。但是np.dot(w, x)函数可以<strong>先将w数组内的所有w数值与x数组内的所有x数值一步并行的对应相乘</strong>。并行计算大大缩短了计算时间。（这也是为什么人工智能专业配置电脑需要好的显卡的原因，因为显卡可以进行并行数据处理。😉）</p>
 
     </div>
 
@@ -607,7 +665,7 @@ b = b-α\frac{1}{m}\sum_{i=1}^{m}( f_{w,b}(x^{(i)}) -y^{(i)})\tag{1.12}</script>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E8%80%81%E5%B8%88%E7%9A%84%E8%A7%86%E9%A2%91%E8%AF%BE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">机器学习-吴恩达老师的视频课学习记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什么是机器学习？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.</span> <span class="nav-text">监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-1"><span class="nav-number">3.1.</span> <span class="nav-text">Part 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-2"><span class="nav-number">3.2.</span> <span class="nav-text">Part 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.</span> <span class="nav-text">无监督学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">线性回归模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B"><span class="nav-number">5.1.</span> <span class="nav-text">模型建立</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-1-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">Part 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-2-1"><span class="nav-number">5.1.2.</span> <span class="nav-text">Part 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.</span> <span class="nav-text">成本函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%87%BD%E6%95%B0%E9%9C%80%E6%B1%82%EF%BC%9A%E6%9C%89%E4%BA%86%E6%A8%A1%E5%9E%8B%EF%BC%8C%E6%88%91%E4%BB%AC%E8%82%AF%E5%AE%9A%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%A0%87%E5%87%86%E6%9D%A5%E8%A1%A1%E9%87%8F%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%A5%BD%E5%9D%8F%E3%80%82%E9%82%A3%E4%B9%88%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E8%BF%99%E4%B8%AA%E6%A0%87%E5%87%86%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="nav-number">5.2.1.</span> <span class="nav-text">成本函数需求：有了模型，我们肯定需要一个标准来衡量一个模型的好坏。那么如何确定这个标准是什么呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A1%A8%E7%A4%BA"><span class="nav-number">5.2.2.</span> <span class="nav-text">成本函数的完整表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">5.2.3.</span> <span class="nav-text">成本函数的理解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-number">5.3.</span> <span class="nav-text">梯度下降法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="nav-number">5.3.1.</span> <span class="nav-text">理解梯度下降法的实现过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E5%AE%9E%E9%99%85%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%EF%BC%88%E7%95%99%E5%AD%98%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">5.3.2.</span> <span class="nav-text">梯度下降法实际算法实现（留存问题）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">5.3.3.</span> <span class="nav-text">梯度下降算法的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%8E%87%E5%AF%B9%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">5.3.4.</span> <span class="nav-text">学习率对梯度下降的影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D"><span class="nav-number">5.3.5.</span> <span class="nav-text">用于线性回归的梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.3.6.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE%E8%80%81%E5%B8%88%E7%9A%84%E8%A7%86%E9%A2%91%E8%AF%BE%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">机器学习-吴恩达老师的视频课学习记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什么是机器学习？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.</span> <span class="nav-text">监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-1"><span class="nav-number">3.1.</span> <span class="nav-text">Part 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-2"><span class="nav-number">3.2.</span> <span class="nav-text">Part 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.</span> <span class="nav-text">无监督学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">线性回归模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B"><span class="nav-number">5.1.</span> <span class="nav-text">模型建立</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-1-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">Part 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-2-1"><span class="nav-number">5.1.2.</span> <span class="nav-text">Part 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.</span> <span class="nav-text">成本函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%87%BD%E6%95%B0%E9%9C%80%E6%B1%82%EF%BC%9A%E6%9C%89%E4%BA%86%E6%A8%A1%E5%9E%8B%EF%BC%8C%E6%88%91%E4%BB%AC%E8%82%AF%E5%AE%9A%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%A0%87%E5%87%86%E6%9D%A5%E8%A1%A1%E9%87%8F%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%A5%BD%E5%9D%8F%E3%80%82%E9%82%A3%E4%B9%88%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E8%BF%99%E4%B8%AA%E6%A0%87%E5%87%86%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="nav-number">5.2.1.</span> <span class="nav-text">成本函数需求：有了模型，我们肯定需要一个标准来衡量一个模型的好坏。那么如何确定这个标准是什么呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%8C%E6%95%B4%E8%A1%A8%E7%A4%BA"><span class="nav-number">5.2.2.</span> <span class="nav-text">成本函数的完整表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">5.2.3.</span> <span class="nav-text">成本函数的理解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-number">5.3.</span> <span class="nav-text">梯度下降法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="nav-number">5.3.1.</span> <span class="nav-text">理解梯度下降法的实现过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E5%AE%9E%E9%99%85%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%EF%BC%88%E7%95%99%E5%AD%98%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">5.3.2.</span> <span class="nav-text">梯度下降法实际算法实现（留存问题）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">5.3.3.</span> <span class="nav-text">梯度下降算法的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%8E%87%E5%AF%B9%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">5.3.4.</span> <span class="nav-text">学习率对梯度下降的影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D"><span class="nav-number">5.3.5.</span> <span class="nav-text">用于线性回归的梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.3.6.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">6.</span> <span class="nav-text">多维线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E7%89%B9%E5%BE%81"><span class="nav-number">6.1.</span> <span class="nav-text">多维特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A2%E9%87%8F%E5%8C%96"><span class="nav-number">6.2.</span> <span class="nav-text">矢量化</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
