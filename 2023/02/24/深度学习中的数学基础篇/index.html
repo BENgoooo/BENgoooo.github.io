@@ -20,17 +20,21 @@
     var CONFIG = {"hostname":"bengoooo.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Keep Learning📕">
-<meta property="og:type" content="website">
-<meta property="og:title" content="赵本麾&#39;s Blog">
-<meta property="og:url" content="http://bengoooo.com/tags/%E6%84%9F%E6%83%B3/index.html">
+  <meta name="description" content="近期开始跟随李沐大神学习深度学习，在学习时发现课堂上涉及到一些数学知识不是很理解，例如在讲矩阵、向量部分知识时，对于矩阵、常量、向量间的相互求导感到很陌生，也不清楚其中的含义。尽管大一学习了线性代数，但是大部分内容已经忘记，需要重新巩固。另外，在前期看吴恩达老师的视频课时也能发现，对于机器学习来说需要掌握一定的数学基础包括梯度，高斯模型，对于一些损失函数常常也需要一步步推导而得之。理解这些数学基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习中的数学基础篇">
+<meta property="og:url" content="http://bengoooo.com/2023/02/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AF%87/index.html">
 <meta property="og:site_name" content="赵本麾&#39;s Blog">
-<meta property="og:description" content="Keep Learning📕">
+<meta property="og:description" content="近期开始跟随李沐大神学习深度学习，在学习时发现课堂上涉及到一些数学知识不是很理解，例如在讲矩阵、向量部分知识时，对于矩阵、常量、向量间的相互求导感到很陌生，也不清楚其中的含义。尽管大一学习了线性代数，但是大部分内容已经忘记，需要重新巩固。另外，在前期看吴恩达老师的视频课时也能发现，对于机器学习来说需要掌握一定的数学基础包括梯度，高斯模型，对于一些损失函数常常也需要一步步推导而得之。理解这些数学基础">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-24T03:44:04.000Z">
+<meta property="article:modified_time" content="2023-02-24T06:18:17.727Z">
 <meta property="article:author" content="BENgoooo">
+<meta property="article:tag" content="数学基础">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://bengoooo.com/tags/%E6%84%9F%E6%83%B3/">
+<link rel="canonical" href="http://bengoooo.com/2023/02/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AF%87/">
 
 
 <script id="page-configurations">
@@ -38,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: 感想 | 赵本麾's Blog</title>
+  <title>深度学习中的数学基础篇 | 赵本麾's Blog</title>
   
 
 
@@ -163,57 +167,146 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://bengoooo.com/2023/02/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="BENgoooo">
+      <meta itemprop="description" content="Keep Learning📕">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵本麾's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          深度学习中的数学基础篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-02-24 11:44:04 / 修改时间：14:18:17" itemprop="dateCreated datePublished" datetime="2023-02-24T11:44:04+08:00">2023-02-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">数学基础</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">感想
-          <small>标签</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/02/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AF%87/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/02/24/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80%E7%AF%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-10-24T15:37:36+08:00"
-              content="2022-10-24">
-          10-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/10/24/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%88%9D%E5%BF%83/" itemprop="url">
-            <span itemprop="name">建立博客的初心</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        <p>近期开始跟随李沐大神学习深度学习，在学习时发现课堂上涉及到一些数学知识不是很理解，例如在讲矩阵、向量部分知识时，对于矩阵、常量、向量间的相互求导感到很陌生，也不清楚其中的含义。尽管大一学习了线性代数，但是大部分内容已经忘记，需要重新巩固。另外，在前期看吴恩达老师的视频课时也能发现，对于机器学习来说需要掌握一定的数学基础包括梯度，高斯模型，对于一些损失函数常常也需要一步步推导而得之。理解这些数学基础知识，掌握一定的数学直觉与推导能力有助于更通透更深刻的掌握机器学习、深度学习算法。</p>
+<p>因此，该篇会陆续更新一些在学习深度学习的过程中所遇到的数学基础…</p>
+<span id="more"></span>
+<p>另外李沐的视频课在这：<a target="_blank" rel="noopener" href="http://courses.d2l.ai/zh-v2/">课程安排 - 动手学深度学习课程 (d2l.ai)</a></p>
+<p>视频学习记录就暂时不进行记录了，主要着重于动手打代码。不过遇到有必要的我也会开新篇来碎片化记录。</p>
 
     </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>感谢你的打赏与支持.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="BENgoooo 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="BENgoooo 支付宝">
+        <p>支付宝</p>
+      </div>
+
   </div>
-  
-  
-  
+</div>
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" rel="tag"># 数学基础</a>
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="prev" title="机器学习">
+      <i class="fa fa-chevron-left"></i> 机器学习
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -421,6 +514,61 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
